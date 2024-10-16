@@ -1,0 +1,148 @@
+---
+title: "{{ collections.post | reverse | first.data.title }} - Restrukturyzacje Karolina Kamińska"
+layout: "base.njk"
+cssPath: "../../../dist/css/"
+cssFile: "wpis.min.css"
+description: "{{ collections.post | reverse | first.data.description | safe }}"
+favIcon: "../../../dist/images/favIcon.png"
+---
+    <div class="mainArticle">
+      <header class="wrapper">
+        <nav class="nav wrapper">
+          <div class="nav__logo">
+            <p>
+              Restrukturyzacje <br />
+              <span
+                style="
+                  color: #fca311;
+                  font-family: 'Charmonman', cursive;
+                  font-weight: bold;
+                "
+                >Kamińska</span
+              >
+            </p>
+          </div>
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="../../../index.html" class="nav__link">Strona Główna</a>
+            </li>
+            <li class="nav__item nav__item--dropdown">
+              <a href="../../../index.html#uslugi" class="nav__link" id="services"
+                >Usługi <span class="nav__link-arrow">&#9662;</span></a
+              >
+              <ul class="nav__dropdown">
+                <li class="nav__dropdown-item">
+                  <a
+                    href="../../../uslugi/restrukturyzacje-firm/index.html"
+                    class="nav__dropdown-link"
+                    >Restrukturyzacja Firm</a
+                  >
+                </li>
+                <li class="nav__dropdown-item">
+                  <a
+                    href="../../../uslugi/upadlosc-konsumencka/index.html"
+                    class="nav__dropdown-link"
+                    >Upadłość Konsumencka</a
+                  >
+                </li>
+                <li class="nav__dropdown-item">
+                  <a
+                    href="../../../uslugi/upadlosc-gospodarcza/index.html"
+                    class="nav__dropdown-link"
+                    >Upadłość Gospodarcza</a
+                  >
+                </li>
+                <li class="nav__dropdown-item">
+                  <a
+                    href="../../../uslugi/obsluga-firm/index.html"
+                    class="nav__dropdown-link"
+                    >Obsługa Firm</a
+                  >
+                </li>
+                <li class="nav__dropdown-item">
+                  <a
+                    href="../../../uslugi/mediacje/index.html"
+                    class="nav__dropdown-link"
+                    >Mediacje</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav__item">
+              <a href="../../../index.html#o-nas" class="nav__link">O Nas</a>
+            </li>
+            <li class="nav__item">
+              <a href="../../../publikacje/aktualnosci/index.html" class="nav__link"
+                >Aktualności</a
+              >
+            </li>
+            <li class="nav__item">
+              <a href="../../../komunikaty/index.html" class="nav__link">Komunikaty</a>
+            </li>
+            <li class="nav__item">
+              <a href="../../../index.html#kontakt" class="nav__link-contact"
+                >Kontakt</a
+              >
+            </li>
+          </ul>
+        </nav>
+        <!-- nav mobile -->
+        <div class="hamburger">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+        <div class="logoMobile">
+          <p>
+            Restrukturyzacje <br />
+            <span
+              style="
+                color: #fca311;
+                font-family: 'Charmonman', cursive;
+                font-weight: bold;
+              "
+              >Kamińska</span
+            >
+          </p>
+        </div>
+      </header>
+
+      <main class="main">
+        <section class="container wrapper">
+          <h1 class="container-title">
+              {{ title }}
+          </h1>
+        </section>
+        <section class="article wrapper">
+          <article class="left">
+            <img class="left-img" src="{{ image }}" alt="{{ imageAlt }}" />
+            <h2 class="left-title">
+              {{ subtitle }}
+            </h2>
+            <p class="left-heading">
+              {{ description }}
+            </p>
+            <p class="left-text">
+              {{ content | safe }}
+            </p>
+          </article>
+          <div class="right">
+            <p class="right-title">Zobacz inne wpisy:</p>
+            <ul class="right__list">
+              {%- set postCount = 0 -%}
+              {%- for post in collections.posts -%}
+                {%- if post.url != page.url and postCount < 5 -%}
+                  <li class="right__list-item">
+                    <a class="right__list-link" href="{{ post.url }}">
+                      {{ post.data.title }}
+                    </a>
+                  </li>
+                  {%- set postCount = postCount + 1 -%}
+                {%- endif -%}
+              {%- endfor -%}
+            </ul>
+          </div>
+        </section>
+      </main>
+    </div>
+  <script defer src="../../../dist/js/script.min.js"></script>

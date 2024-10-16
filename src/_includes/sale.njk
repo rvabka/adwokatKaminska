@@ -1,0 +1,142 @@
+---
+title: "{{ collections.sell | reverse | first.data.title }} - Restrukturyzacje Karolina Kamińska"
+layout: "base.njk"
+cssPath: "../../../dist/css/"
+cssFile: "sale.min.css"
+description: "{{ collections.sell | reverse | first.data.description | safe }}"
+favIcon: "../../../dist/images/favIcon.png"
+---
+
+    <div class="mainArticle">
+      <header class="wrapper">
+        <nav class="nav wrapper">
+          <div class="nav__logo">
+            <p>
+              Restrukturyzacje <br />
+              <span
+                style="
+                  color: #fca311;
+                  font-family: 'Charmonman', cursive;
+                  font-weight: bold;
+                "
+                >Kamińska</span
+              >
+            </p>
+          </div>
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="../../../index.html" class="nav__link">Strona Główna</a>
+            </li>
+            <li class="nav__item nav__item--dropdown">
+              <a href="../../../index.html#uslugi" class="nav__link" id="services"
+                >Usługi <span class="nav__link-arrow">&#9662;</span></a
+              >
+              <ul class="nav__dropdown">
+                <li class="nav__dropdown-item">
+                  <a
+                    href="../../../uslugi/restrukturyzacje-firm/index.html"
+                    class="nav__dropdown-link"
+                    >Restrukturyzacja Firm</a
+                  >
+                </li>
+                <li class="nav__dropdown-item">
+                  <a
+                    href="../../../uslugi/upadlosc-konsumencka/index.html"
+                    class="nav__dropdown-link"
+                    >Upadłość Konsumencka</a
+                  >
+                </li>
+                <li class="nav__dropdown-item">
+                  <a
+                    href="../../../uslugi/upadlosc-gospodarcza/index.html"
+                    class="nav__dropdown-link"
+                    >Upadłość Gospodarcza</a
+                  >
+                </li>
+                <li class="nav__dropdown-item">
+                  <a
+                    href="../../../uslugi/obsluga-firm/index.html"
+                    class="nav__dropdown-link"
+                    >Obsługa Firm</a
+                  >
+                </li>
+                <li class="nav__dropdown-item">
+                  <a
+                    href="../../../uslugi/mediacje/index.html"
+                    class="nav__dropdown-link"
+                    >Mediacje</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav__item">
+              <a href="../../../index.html#o-nas" class="nav__link">O Nas</a>
+            </li>
+            <li class="nav__item">
+              <a href="../../../publikacje/aktualnosci/index.html" class="nav__link"
+                >Aktualności</a
+              >
+            </li>
+            <li class="nav__item">
+              <a href="../../index.html" class="nav__link">Komunikaty</a>
+            </li>
+            <li class="nav__item">
+              <a href="../../../index.html#kontakt" class="nav__link-contact"
+                >Kontakt</a
+              >
+            </li>
+          </ul>
+        </nav>
+        <!-- nav mobile -->
+        <div class="hamburger">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+        <div class="logoMobile">
+          <p>
+            Restrukturyzacje <br />
+            <span
+              style="
+                color: #fca311;
+                font-family: 'Charmonman', cursive;
+                font-weight: bold;
+              "
+              >Kamińska</span
+            >
+          </p>
+        </div>
+      </header>
+
+      <main class="main">
+        <section class="container wrapper">
+          <h1 class="container-title">
+              {{ title }}
+              <p class="top__right-date">{{date | postDate}}</p>
+          </h1>
+          <section class="article wrapper">
+            <div class="top">
+              <div class="top__left">
+                <img class="top__left-image" src="{{ mainImage }}" alt="{{ mainImageAlt }}">
+              </div>
+              <div class="top__right">
+                <h2 class="top__right-description">{{ description }}</h2>
+              </div>
+            </div>
+            <div class="article-content">
+              {{ content | safe }}
+            </div>
+            <div class="gallery">
+            {% for sale in collections.sale %}
+                {% for imageItem in sale.data.images %}
+                  <div class="gallery-item">
+                    <img src="{{ imageItem.image }}" alt="{{ imageItem.imageAlt }}" class="gallery-image" />
+                  </div>
+                {% endfor %}
+            {% endfor %}
+            </div>
+          </section>
+        </section>
+      </main>
+    </div>
+  <script src="../../../dist/js/script.min.js"></script>

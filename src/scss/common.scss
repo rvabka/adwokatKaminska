@@ -1,0 +1,462 @@
+$primaryColor: #f5f5f5;
+$darkColor: #262a35;
+$brighterDarkColor: #424547;
+$goldColor: #fcb900;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  position: relative;
+  color: $darkColor;
+  overflow-x: hidden;
+}
+
+.mainArticle {
+  position: relative;
+  background-image: url("../images/backgroundDesktopRight.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  @media (max-width: 850px) {
+    background-image: url("../images/backgroundMobileRight.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+
+// navigation
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 2rem;
+  font-size: clamp(1.1rem, 1.4vw, 1.4rem);
+  font-weight: 400;
+  height: 10vh;
+  z-index: 5000;
+  transition: all 0.3s ease;
+  width: 100vw;
+
+  .fixed {
+    position: fixed !important;
+  }
+
+  &__logo {
+    margin-top: 17px;
+    p {
+      text-align: center;
+    }
+  }
+
+  &__link {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: $darkColor;
+    font-size: clamp(0.9rem, 1.15rem, 1.3rem);
+    transition: 0.3s all ease;
+
+    @media (max-width: 936px) {
+      font-size: 1rem;
+    }
+    @media (max-width: 878px) {
+      font-size: 0.9rem;
+    }
+
+    &-arrow {
+      display: none;
+    }
+
+    &:hover {
+      color: $goldColor;
+      transform: scale(1.05);
+    }
+
+    &-contact {
+      background: $goldColor;
+      display: flex;
+      font-size: clamp(0.9rem, 1.15rem, 1.3rem);
+      align-items: center;
+      justify-content: center;
+      border-radius: 5px;
+      padding: 10px 15px;
+      border: 2px solid $goldColor;
+      text-decoration: none;
+      cursor: pointer;
+      color: $darkColor;
+      transition: all 0.3s ease;
+
+      &:hover {
+        -webkit-box-shadow: 8px 8px 28px -16px rgba(252, 163, 17, 1);
+        -moz-box-shadow: 8px 8px 28px -16px rgba(252, 163, 17, 1);
+        box-shadow: 8px 8px 28px -16px rgba(252, 163, 17, 1);
+        color: $darkColor;
+        transform: scale(1.03);
+      }
+    }
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+  }
+
+  &__item {
+    position: relative;
+
+    @media (min-width: 851px) {
+      &--dropdown {
+        &:hover .nav__dropdown {
+          display: block;
+        }
+      }
+    }
+  }
+
+  &__dropdown {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    z-index: 1000;
+
+    &.visible {
+      display: block;
+    }
+
+    &-item {
+      border-bottom: 1px solid #ddd;
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+
+    &-link {
+      display: block;
+      padding: 10px 15px;
+      text-decoration: none;
+      transition: 0.3s all ease;
+      font-size: clamp(0.9rem, 1.15rem, 1.3rem);
+      color: $darkColor;
+      text-align: center;
+
+      &:hover {
+        color: $goldColor;
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  @media (max-width: 850px) {
+    position: fixed;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    background: $primaryColor;
+    z-index: 100;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+
+    &.active {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    &__logo {
+      position: absolute;
+      left: 20%;
+      top: 0px;
+    }
+
+    &__list {
+      text-align: center;
+      flex-direction: column;
+      width: 100%;
+      margin-top: -7rem;
+    }
+
+    &__link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: clamp(0.9rem, 1.15rem, 1.3rem);
+      &-arrow {
+        display: block;
+      }
+    }
+
+    &__item {
+      text-align: center;
+      border-bottom: 1px solid $goldColor;
+      padding: 0.7rem 0;
+
+      &:last-child {
+        border-bottom: 0px;
+      }
+    }
+  }
+
+  @media only screen and (orientation: landscape) and (max-width: 850px) {
+    &__logo {
+      display: none;
+    }
+
+    &__item {
+      font-size: 0.8rem;
+    }
+
+    &__list {
+      margin-top: 0rem;
+    }
+
+    &__dropdown {
+      top: 90%;
+
+      &-link {
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
+
+.wrapper {
+  max-width: 1400px;
+  margin: auto;
+}
+
+// hamburger button
+.hamburger {
+  position: absolute;
+  top: 30px;
+  right: 25px;
+  cursor: pointer;
+  z-index: 1001;
+  .bar {
+    width: 30px;
+    height: 3px;
+    background-color: $darkColor;
+    margin: 6px 0;
+    transition: 0.3s ease;
+    border-radius: 2px;
+  }
+
+  &.open {
+    .bar:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+    }
+    .bar:nth-child(2) {
+      opacity: 0;
+    }
+    .bar:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+  }
+}
+
+.logoMobile {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  top: 20px;
+  font-size: clamp(1rem, 1.2rem, 1.45rem);
+}
+@media (max-width: 850px) {
+  .logoMobile {
+    display: block;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+@media (min-width: 851px) {
+  .logoMobile {
+    display: none;
+  }
+
+  .hamburger {
+    display: none;
+  }
+}
+
+//map
+
+.map {
+  &-title {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(1.6rem, 2.8rem, 3rem);
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: $goldColor;
+    padding: 1rem;
+
+    @media (max-width: 850px) {
+      font-size: 1.7rem;
+    }
+  }
+}
+
+// footer
+.footer {
+  background-image: url("../images/backgroundFooter.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 20px 10px;
+  text-align: center;
+  overflow-x: hidden;
+
+  @media (max-width: 900px) {
+    height: 100%;
+  }
+
+  &__logo {
+    font-size: 1.3rem;
+    font-weight: bold;
+
+    span {
+      color: $primaryColor;
+      font-size: 1.2rem;
+      font-family: "Charmonman", cursive;
+    }
+  }
+
+  .containter {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding-bottom: 0.7rem;
+    border-bottom: 1px solid $darkColor;
+
+    @media (max-width: 900px) {
+      padding-top: 0rem;
+      margin-top: 0px;
+      flex-wrap: wrap;
+    }
+
+    &__link {
+      display: block;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      color: $darkColor;
+
+      @media (max-width: 900px) {
+        justify-content: center;
+        align-items: center;
+        padding: 1rem 0;
+        width: 100%;
+      }
+      @media (max-width: 450px) {
+        justify-content: start;
+      }
+
+      &-icon {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        background-color: $primaryColor;
+        padding: 10px;
+        margin-right: 0.5rem;
+
+        svg {
+          color: $goldColor;
+          width: 35px;
+          height: 35px;
+        }
+      }
+
+      &-title {
+        font-weight: 300;
+        font-size: clamp(1rem, 1.1rem, 1.3rem);
+        text-align: left;
+
+        span {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  .createdBy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 10px;
+    bottom: 10px;
+    margin-top: 1rem;
+
+    svg {
+      width: 15px;
+      height: 15px;
+    }
+
+    &-icon {
+      color: $primaryColor;
+    }
+  }
+}
+
+// scroll button
+.scrollToTopBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 15px;
+  background-color: $goldColor;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: none;
+  z-index: 5000;
+
+  &:hover {
+    transform: scale(1.05);
+    -webkit-box-shadow: 8px 8px 28px -16px rgba(252, 163, 17, 1);
+    -moz-box-shadow: 8px 8px 28px -16px rgba(252, 163, 17, 1);
+    box-shadow: 8px 8px 28px -16px rgba(252, 163, 17, 1);
+
+    svg {
+      transform: rotate(360deg);
+    }
+  }
+
+  & svg {
+    transition: all 0.4s ease;
+  }
+}

@@ -1,0 +1,92 @@
+@import "common.scss";
+
+body {
+  position: relative;
+  color: $darkColor;
+  overflow-x: hidden;
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  height: 100%;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 4rem;
+
+    &-title {
+      font-size: clamp(1.7rem, 3.6rem, 3.4rem);
+      background: #161920;
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 300;
+      letter-spacing: 1.3px;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      background: linear-gradient(
+        to right,
+        $darkColor 0%,
+        $goldColor 50%,
+        $darkColor 100%
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+      @media (max-width: 850px) {
+        font-size: clamp(1.9em, 2.2rem, 2.4rem);
+        text-align: center;
+      }
+    }
+    &-img {
+      border-radius: 10px;
+      margin-bottom: 2.5rem;
+      max-width: 100%;
+      width: 800px;
+      height: auto;
+      box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    &-article {
+      width: 80%;
+      font-size: clamp(1.1rem, 1.5rem, 1.6rem);
+      font-family: "Cormorant Garamond", serif;
+      padding: 1rem;
+      border: 1px solid $goldColor;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+      @media (max-width: 850px) {
+        width: 100%;
+        font-size: clamp(1.1rem, 1.4rem, 1.6rem);
+      }
+
+      &--line {
+        display: block;
+        height: 1px;
+        width: 75%;
+        background-color: $goldColor;
+        margin: 0 auto;
+        margin-top: 1.5rem;
+      }
+
+      &::first-letter {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 3em;
+        font-weight: bold;
+        color: #333;
+        float: left;
+        margin-right: 0.1em;
+        line-height: 1;
+      }
+
+      strong {
+        font-family: "Cormorant Garamond", serif;
+      }
+    }
+  }
+}
