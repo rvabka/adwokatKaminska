@@ -53,9 +53,17 @@ body {
   }
 
   &__logo {
-    margin-top: 17px;
-    p {
-      text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    &-item {
+      width: 128px;
+      height: 128px;
+
+      @media (max-width: 850px) {
+        margin-left: 0.8rem;
+      }
     }
   }
 
@@ -168,6 +176,7 @@ body {
 
   @media (max-width: 850px) {
     position: fixed;
+    display: flex;
     justify-content: center;
     align-items: flex-start;
     flex-direction: column;
@@ -241,6 +250,11 @@ body {
       }
     }
   }
+
+  .activePage {
+    color: $goldColor;
+    font-weight: bold;
+  }
 }
 
 .wrapper {
@@ -282,9 +296,17 @@ body {
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
-  top: 20px;
+  top: -1.3rem;
   font-size: clamp(1rem, 1.2rem, 1.45rem);
+
+  &-item {
+    @media (max-width: 850px) {
+      width: 128px;
+      height: 128px;
+    }
+  }
 }
+
 @media (max-width: 850px) {
   .logoMobile {
     display: block;
@@ -336,15 +358,13 @@ body {
     height: 100%;
   }
 
-  &__logo {
-    font-size: 1.3rem;
-    font-weight: bold;
-
-    span {
-      color: $primaryColor;
-      font-size: 1.2rem;
-      font-family: "Charmonman", cursive;
-    }
+  &-logo {
+    width: 128px;
+    height: 128px;
+    background-color: $primaryColor;
+    border-radius: 50%;
+    margin: 0 auto;
+    box-shadow: 2px 2px 8px #dddddd;
   }
 
   .containter {

@@ -3,28 +3,18 @@ title: Strona Główna - Restrukturyzacje Karolina Kamińska
 layout: "base.njk"
 favIcon: "./dist/images/favIcon.png"
 description: "Profesjonalna restrukturyzacja firm – pomagam firmom w trudnej sytuacji finansowej, oferując kompleksowe rozwiązania naprawcze, redukcję kosztów i optymalizację działań. Skuteczne wsparcie w odzyskaniu płynności finansowej."
+logoPath: "./dist/images/logo.png"
 ---
 <article class="mainArticle">
   <!-- header -->
   <header class="wrapper">
     <nav class="nav wrapper">
       <div class="nav__logo">
-        {# <img src="./dist/images/logo.png" alt="logo"> #}
-        <p>
-          Restrukturyzacje <br />
-          <span
-            style="
-              color: #fca311;
-              font-family: 'Charmonman', cursive;
-              font-weight: bold;
-            "
-            >Kamińska</span
-          >
-        </p>
+        <img src="./dist/images/logo.png" class="nav__logo-item" alt="logo">
       </div>
       <ul class="nav__list">
         <li class="nav__item">
-          <a href="#" class="nav__link">Strona Główna</a>
+          <a href="#" class="nav__link activePage">Strona Główna</a>
         </li>
         <li class="nav__item nav__item--dropdown">
           <a href="#uslugi" class="nav__link" id="services"
@@ -85,17 +75,7 @@ description: "Profesjonalna restrukturyzacja firm – pomagam firmom w trudnej s
       <div class="bar"></div>
     </div>
     <div class="logoMobile">
-      <p>
-        Restrukturyzacje <br />
-        <span
-          style="
-            color: #fca311;
-            font-family: 'Charmonman', cursive;
-            font-weight: bold;
-          "
-          >Kamińska</span
-        >
-      </p>
+        <img src="./dist/images/logo.png" class="logoMobile-item" alt="logo">
     </div>
   </header>
   <!-- main section -->
@@ -155,7 +135,7 @@ description: "Profesjonalna restrukturyzacja firm – pomagam firmom w trudnej s
       </div>
     </div>
     <div class="right">
-      <img src="./dist/images/4.jpg" alt="" class="right__img" />
+      <img src="./dist/images/4.jpg" alt="Autoportret Karolina Kamińska" class="right__img" />
     </div>
   </main>
 </article>
@@ -298,7 +278,7 @@ description: "Profesjonalna restrukturyzacja firm – pomagam firmom w trudnej s
         <img
           class="about__main-photo"
           src="https://picsum.photos/380/300"
-          alt=""
+          alt="Zdjęcie osób z kancelarii"
         />
       </div>
       <div class="about__main-item second">
