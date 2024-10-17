@@ -2,14 +2,163 @@
 
 // main
 .main {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-direction: column;
   margin: 0 auto;
   padding: 2rem;
   overflow: hidden;
   height: 90vh;
+
+  &__span {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+
+    @media (max-width: 850px) {
+      width: 90px;
+      height: 90px;
+    }
+
+    @media (max-width: 450px) {
+      width: 70px;
+      height: 70px;
+    }
+
+    &:nth-child(1) {
+      top: 5rem;
+      left: 20rem;
+
+      @media (max-width: 1200px) {
+        left: 15rem;
+      }
+
+      @media (max-width: 1050px) {
+        left: 11rem;
+      }
+
+      @media (max-width: 900px) {
+        left: 8rem;
+      }
+
+      @media (max-width: 850px) {
+        top: 23rem;
+        left: 5rem;
+      }
+
+      @media (max-width: 650px) {
+        left: 3rem;
+      }
+
+      @media (max-width: 450px) {
+        top: 4rem;
+        left: 1rem;
+      }
+    }
+
+    &:nth-child(2) {
+      top: 5rem;
+      right: 22rem;
+
+      @media (max-width: 1200px) {
+        right: 17rem;
+      }
+
+      @media (max-width: 1050px) {
+        right: 13rem;
+      }
+
+      @media (max-width: 900px) {
+        right: 10rem;
+      }
+
+      @media (max-width: 850px) {
+        top: 10rem;
+        right: 7rem;
+      }
+
+      @media (max-width: 650px) {
+        right: 5rem;
+      }
+
+      @media (max-width: 450px) {
+        top: 4rem;
+        right: 3rem;
+      }
+    }
+
+    &:nth-child(3) {
+      top: 15rem;
+      right: 22rem;
+
+      @media (min-width: 1500px) {
+        top: 20rem;
+      }
+
+      @media (max-width: 1200px) {
+        right: 17rem;
+      }
+
+      @media (max-width: 1050px) {
+        right: 13rem;
+      }
+
+      @media (max-width: 900px) {
+        right: 10rem;
+      }
+
+      @media (max-width: 850px) {
+        top: 23rem;
+        right: 7rem;
+      }
+
+      @media (max-width: 650px) {
+        right: 5rem;
+      }
+
+      @media (max-width: 450px) {
+        top: 15rem;
+        right: 1rem;
+      }
+    }
+
+    &:nth-child(4) {
+      top: 15rem;
+      left: 20rem;
+
+      @media (min-width: 1500px) {
+        top: 20rem;
+      }
+
+      @media (max-width: 1200px) {
+        left: 15rem;
+      }
+
+      @media (max-width: 1050px) {
+        left: 11rem;
+      }
+
+      @media (max-width: 900px) {
+        left: 8rem;
+      }
+
+      @media (max-width: 850px) {
+        top: 10rem;
+        left: 5rem;
+      }
+
+      @media (max-width: 650px) {
+        left: 3rem;
+      }
+
+      @media (max-width: 450px) {
+        top: 15rem;
+        left: 0.5rem;
+      }
+    }
+  }
 
   @media (max-width: 1200px) {
     height: auto;
@@ -26,46 +175,45 @@
   .left {
     display: flex;
     align-items: center;
+    justify-content: center;
+    text-align: center;
     margin: 0 auto;
     flex-wrap: wrap;
-    width: 60%;
-    margin-left: -0.5rem;
+    margin-top: -3rem;
+    width: 100%;
+    z-index: 2;
 
     @media (max-width: 1200px) {
-      width: 50%;
-    }
-
-    @media (max-width: 992px) {
-      justify-content: center;
-      text-align: center;
-      width: 100%;
+      margin-top: -6rem;
     }
 
     @media (max-width: 850px) {
-      width: 100%;
-      margin-left: 0rem;
+      margin-top: -2rem;
+    }
+
+    @media (max-width: 450px) {
+      margin-top: -6rem;
     }
 
     &__title {
       font-size: clamp(1.7rem, 3.6rem, 3.4rem);
-      background: #161920;
       font-family: "Cormorant Garamond", serif;
-      font-weight: 300;
-      letter-spacing: 1.3px;
-      margin-bottom: 1.5rem;
+      font-weight: 200;
       text-transform: uppercase;
-      background: linear-gradient(
-        to right,
-        $darkColor 0%,
-        $goldColor 50%,
-        $darkColor 100%
-      );
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: $goldColor;
 
       &-modifier {
         font-weight: bold;
+        background: #161920;
         letter-spacing: 3px;
+        background: linear-gradient(
+          to right,
+          $lawGreen 0%,
+          #22725a 50%,
+          $lawGreen 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
       }
 
       @media (max-width: 1150px) {
@@ -74,18 +222,18 @@
 
       @media (max-width: 850px) {
         margin-bottom: 0.6rem;
-        margin-top: 3rem;
-      }
-
-      @media (max-width: 480px) {
-        font-size: 1.8rem;
+        font-size: 2.2rem;
       }
     }
 
     &__subtitle {
       font-size: clamp(1.3rem, 1.5vw, 1.9rem);
-      margin-bottom: 1.5rem;
       line-height: 2.2rem;
+      width: 75%;
+      &-modifier {
+        font-weight: bold;
+        color: $lawGreen;
+      }
     }
 
     &__button {
@@ -99,10 +247,11 @@
         font-size: clamp(1.1rem, 1.4rem, 1.7rem);
         margin-right: 1.5rem;
         padding: 0.9rem;
-        border-radius: 5px;
-        border: 2px solid $goldColor;
+        border-radius: 20px;
+        border: 2px solid $lawGreen;
+        background-color: $primaryColor;
         cursor: pointer;
-        color: $darkColor;
+        color: $lawGreen;
         text-decoration: none;
         transition: all 0.3s ease;
 
@@ -118,7 +267,8 @@
         }
 
         &-contact {
-          background-color: $goldColor;
+          background-color: $lawGreen;
+          color: $goldColor;
         }
 
         @media (max-width: 480px) {
@@ -147,55 +297,51 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40%;
-    max-width: 400px;
-    max-height: 600px;
+    width: 100%;
+    min-height: 400px;
+    margin-bottom: 5rem;
+    margin-top: 1rem;
+
+    @media (max-width: 1200px) {
+      margin-bottom: 1rem;
+    }
 
     @media (max-width: 850px) {
-      width: 40%;
-      max-width: 100%;
+      margin-top: 5rem;
     }
 
-    @media (max-width: 780px) {
-      width: 50%;
-      max-width: 100%;
-    }
-
-    @media (max-width: 700px) {
-      width: 60%;
-      max-width: 100%;
-    }
-
-    @media (max-width: 600px) {
-      width: 65%;
-      max-width: 100%;
-    }
-
-    @media (max-width: 500px) {
-      width: 70%;
-      max-width: 100%;
-    }
-
-    &::before {
-      content: "";
-      position: absolute;
-      top: -18px;
-      left: 18px;
-      width: 100%;
-      height: 100%;
-      background-color: $goldColor;
-      z-index: 0;
-      border-radius: 10px;
+    @media (max-width: 450px) {
+      margin-bottom: -1.5rem;
     }
 
     &__img {
       position: relative;
       display: block;
-      width: 100%;
-      max-height: 600px;
+      width: 90%;
       height: auto;
-      border-radius: 10px;
+      border-radius: 5px;
+      margin: 0 auto;
       z-index: 1;
+
+      @media (max-width: 1200px) {
+        width: 100%;
+        margin-top: -8rem;
+      }
+
+      @media (max-width: 1030px) {
+        width: 120%;
+        margin-top: -8rem;
+      }
+
+      @media (max-width: 850px) {
+        width: 120%;
+        margin-top: -4rem;
+      }
+
+      @media (max-width: 390px) {
+        width: 180%;
+        margin-top: -8rem;
+      }
     }
   }
 }
@@ -250,6 +396,7 @@
 
   &__container {
     width: 100%;
+    gap: 1rem;
 
     &-flex {
       display: flex;
@@ -271,9 +418,23 @@
       cursor: pointer;
       text-align: center;
       border-radius: 10px;
+      margin-top: 1.3rem;
       text-decoration: none;
       color: $darkColor;
+      margin-right: 1rem;
+
+      background: rgba(255, 255, 255, 0);
+      border-radius: 16px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(4.7px);
+      -webkit-backdrop-filter: blur(4.7px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+
       transition: all 0.3s ease;
+
+      &:last-child {
+        margin-right: 0;
+      }
 
       @media (max-width: 1000px) {
         width: 350px;
@@ -298,7 +459,7 @@
       &--image {
         width: 60px;
         height: 60px;
-        color: $goldColor;
+        color: $lawGreen;
         filter: drop-shadow(1.5px 0 1px black);
       }
 
@@ -309,7 +470,7 @@
         text-transform: uppercase;
         margin-top: 1rem;
         font-size: clamp(1.6rem, 1.8rem, 2rem);
-        border-top: 3px solid $goldColor;
+        border-top: 3px solid $lawGreen;
         width: 300px;
         padding: 0.5rem;
         height: 20%;
@@ -343,7 +504,7 @@
     flex-direction: column;
     height: 200px;
     width: 100%;
-    background-image: url("../images/backgroundFooter.png");
+    background-image: url("../images/backgroundFoooter.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -354,6 +515,7 @@
       font-family: "Cormorant Garamond", serif;
       font-weight: 300;
       text-transform: uppercase;
+      color: $primaryColor;
       font-size: clamp(1.6rem, 2.7rem, 2.5rem);
       letter-spacing: 1px;
 
@@ -365,6 +527,7 @@
       &--modifier {
         font-family: "Cormorant Garamond", serif;
         font-weight: bold;
+        color: $goldColor;
       }
     }
   }
@@ -583,12 +746,12 @@
       padding: 0.9rem;
       width: 400px;
       border-radius: 5px;
-      background-color: $goldColor;
-      border: 2px solid $goldColor;
+      background-color: $lawGreen;
+      border: none;
       cursor: pointer;
       text-decoration: none;
       text-align: center;
-      color: $darkColor;
+      color: $goldColor;
       transition: all 0.3s ease;
 
       &:hover {
@@ -596,6 +759,7 @@
         -moz-box-shadow: 8px 8px 28px -16px rgba(252, 163, 17, 1);
         box-shadow: 8px 8px 28px -16px rgba(252, 163, 17, 1);
         transform: scale(1.03);
+        font-weight: 500;
       }
 
       @media (max-width: 1150px) {

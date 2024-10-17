@@ -22,6 +22,7 @@
     "sass": "^1.64.2"
   },
   "dependencies": {
+    "caniuse-lite": "^1.0.30001669",
     "luxon": "^3.5.0"
   }
 }

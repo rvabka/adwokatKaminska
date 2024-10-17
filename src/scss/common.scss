@@ -1,7 +1,9 @@
 $primaryColor: #f5f5f5;
+$primaryColor: #e0e0e0;
 $darkColor: #262a35;
 $brighterDarkColor: #424547;
 $goldColor: #fcb900;
+$lawGreen: #215a49;
 
 * {
   margin: 0;
@@ -87,29 +89,29 @@ body {
     }
 
     &:hover {
-      color: $goldColor;
+      color: $lawGreen;
       transform: scale(1.05);
     }
 
     &-contact {
-      background: $goldColor;
+      background: $lawGreen;
       display: flex;
       font-size: clamp(0.9rem, 1.15rem, 1.3rem);
       align-items: center;
       justify-content: center;
       border-radius: 5px;
       padding: 10px 15px;
-      border: 2px solid $goldColor;
+      border: 2px solid $lawGreen;
       text-decoration: none;
       cursor: pointer;
-      color: $darkColor;
+      color: $goldColor;
       transition: all 0.3s ease;
 
       &:hover {
         -webkit-box-shadow: 8px 8px 28px -16px rgba(252, 163, 17, 1);
         -moz-box-shadow: 8px 8px 28px -16px rgba(252, 163, 17, 1);
         box-shadow: 8px 8px 28px -16px rgba(252, 163, 17, 1);
-        color: $darkColor;
+        font-weight: 500;
         transform: scale(1.03);
       }
     }
@@ -168,7 +170,7 @@ body {
       text-align: center;
 
       &:hover {
-        color: $goldColor;
+        color: $lawGreen;
         transform: scale(1.05);
       }
     }
@@ -252,7 +254,7 @@ body {
   }
 
   .activePage {
-    color: $goldColor;
+    color: $lawGreen;
     font-weight: bold;
   }
 }
@@ -335,7 +337,11 @@ body {
     font-weight: 300;
     text-transform: uppercase;
     text-align: center;
-    background-color: $goldColor;
+    background-image: url("../images/backgroundFoooter.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: $primaryColor;
     padding: 1rem;
 
     @media (max-width: 850px) {
@@ -346,12 +352,13 @@ body {
 
 // footer
 .footer {
-  background-image: url("../images/backgroundFooter.png");
+  background-image: url("../images/backgroundFoooter.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   padding: 20px 10px;
   text-align: center;
+  color: $primaryColor;
   overflow-x: hidden;
 
   @media (max-width: 900px) {
@@ -361,7 +368,6 @@ body {
   &-logo {
     width: 128px;
     height: 128px;
-    background-color: $primaryColor;
     border-radius: 50%;
     margin: 0 auto;
     box-shadow: 2px 2px 8px #dddddd;
@@ -423,6 +429,7 @@ body {
         font-weight: 300;
         font-size: clamp(1rem, 1.1rem, 1.3rem);
         text-align: left;
+        color: $primaryColor;
 
         span {
           font-weight: bold;

@@ -31,9 +31,9 @@ body {
       text-transform: uppercase;
       background: linear-gradient(
         to right,
-        $darkColor 0%,
-        $goldColor 50%,
-        $darkColor 100%
+        $lawGreen 0%,
+        #22725a 50%,
+        $lawGreen 100%
       );
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -132,7 +132,7 @@ body {
         font-size: clamp(1.1rem, 1.3rem, 1.5rem);
         text-decoration: none;
         padding: 1rem;
-        color: $goldColor;
+        color: $lawGreen;
 
         svg {
           transition: transform 0.3s ease;
