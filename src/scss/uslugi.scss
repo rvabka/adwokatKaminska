@@ -30,9 +30,9 @@ body {
       text-transform: uppercase;
       background: linear-gradient(
         to right,
-        $darkColor 0%,
-        $goldColor 50%,
-        $darkColor 100%
+        $lawGreen 0%,
+        #22725a 50%,
+        $lawGreen 100%
       );
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -56,7 +56,7 @@ body {
       font-size: clamp(1.1rem, 1.5rem, 1.6rem);
       font-family: "Cormorant Garamond", serif;
       padding: 1rem;
-      border: 1px solid $goldColor;
+      border: 1px solid $lawGreen;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 
@@ -69,7 +69,7 @@ body {
         display: block;
         height: 1px;
         width: 75%;
-        background-color: $goldColor;
+        background-color: $lawGreen;
         margin: 0 auto;
         margin-top: 1.5rem;
       }
@@ -78,7 +78,7 @@ body {
         font-family: "Cormorant Garamond", serif;
         font-size: 3em;
         font-weight: bold;
-        color: #333;
+        color: $goldColor;
         float: left;
         margin-right: 0.1em;
         line-height: 1;

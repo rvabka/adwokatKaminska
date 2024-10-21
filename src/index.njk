@@ -2,8 +2,10 @@
 title: Strona Główna - Adwokat Karolina Kamińska
 layout: "base.njk"
 favIcon: "./dist/images/favIcon.png"
-description: "Profesjonalna restrukturyzacja firm – pomagam firmom w trudnej sytuacji finansowej, oferując kompleksowe rozwiązania naprawcze, redukcję kosztów i optymalizację działań. Skuteczne wsparcie w odzyskaniu płynności finansowej."
+description: "Jestem adwokat Karolina Kamińska z Lublina. Specjalizuję się w sprawach rodzinnych, karnych oraz prawa pracy i cywilnego. Skontaktuj się ze mną po pomoc prawną."
 logoPath: "./dist/images/logo.png"
+swiperCSS: "https://unpkg.com/swiper/swiper-bundle.min.css"
+customScript: true
 ---
 <article class="mainArticle">
   <!-- header -->
@@ -234,52 +236,30 @@ logoPath: "./dist/images/logo.png"
 </section>
 
 <!-- about -->
-<section class="about" id="o-nas">
-  <div class="about__main wrapper">
-    <div class="about__main-flex">
-      <div class="about__main-item first" data-aos="fade-right">
-        <img
-          class="about__main-photo"
-          src="https://picsum.photos/380/300"
-          alt="Zdjęcie osób z kancelarii"
-        />
-      </div>
-      <div class="about__main-item second">
-        <p class="about__main-item--subTitle">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis
-          tenetur, dolorem, velit laborum adipisci unde aut explicabo saepe
-          doloribus minus quae nihil consequuntur.
+<section class="about">
+  <div class="flex wrapper">
+    <div class="who">
+      <div class="who__information">
+        <p class="who__information-subtitle">
+          Kim jestem
         </p>
-        <p class="about__main-item--titles">
-          Doradca Restrukturyzacyjny <br />
-          & Radca Prawny
+        <h4 class="who__information-title" data-aos="fade-left">Kim jestem</h4>
+        <p class="who__information-description">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam cum ut unde officia odit consequatur a repudiandae nisi, ratione numquam animi mollitia corrupti laboriosam ab, soluta facilis. Eligendi, magni alias.
         </p>
+        <img class="who__information-img" src="https://picsum.photos/400/500" alt="do uzupelnienia" class="who__information-img">
       </div>
     </div>
-    <div class="about__main-flex">
-      <div class="about__main-item third">
-        <p class="about__main-item--subTitle">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis
-          tenetur, dolorem, velit laborum adipisci unde aut explicabo saepe
-          doloribus minus consequuntur.
+    <div class="why">
+      <div class="why__information">
+        <p class="why__information-subtitle">
+          Dlaczego ja
         </p>
-        <p class="about__main-item--titles">
-          Doradca Restrukturyzacyjny <br />
-          & Radca Prawny
+        <h4 class="why__information-title" data-aos="fade-right">Dlaczego ja</h4>
+        <p class="why__information-description">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam cum ut unde officia odit consequatur a repudiandae nisi, ratione numquam animi mollitia corrupti laboriosam ab, soluta facilis. Eligendi, magni alias.
         </p>
-      </div>
-      <div class="about__main-item fourth" data-aos="fade-left">
-        <p>
-          Restrukturyzacje <br />
-          <span
-            style="
-              color: #fca311;
-              font-family: 'Charmonman', cursive;
-              font-weight: bold;
-            "
-            >Kamińska</span
-          >
-        </p>
+        <img src="https://picsum.photos/400/400" alt="do uzupelnienia" class="why__information-img">
       </div>
     </div>
   </div>
@@ -297,33 +277,45 @@ logoPath: "./dist/images/logo.png"
       >Poznaj moje publikacje</a
     >
   </div>
-  <div class="articles wrapper">
-
-  {%- set maxPosts = 6 -%}
-  {%- set postCount = 0 -%}
-  {%- for post in collections.post | reverse -%}
-    {%- if postCount < maxPosts -%}
-      <div class="article">
-        <a href="{{ post.url }}" class="article__link">
-          <img
-            src="{{ post.data.image }}"
-            alt="{{ post.data.imageAlt }}"
-            class="article__link-img"
-          />
-        </a>
-        <h5 class="article__title">{{ post.data.title }}</h5>
-        <p class="article__date">{{ post.data.date | postDate }}</p>
-        <p class="article__description">{{ post.data.description }}..</p>
-      </div>
-      {%- set postCount = postCount + 1 -%}
-    {%- endif -%}
-  {%- endfor -%}
-
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      {%- set maxPosts = 6 -%}
+      {%- set postCount = 0 -%}
+      {%- for post in collections.post | reverse -%}
+        {%- if postCount < maxPosts -%}
+          <div class="swiper-slide">
+            <a href="{{ post.url }}" class="swiper__link">
+              <img
+                src="{{ post.data.image }}"
+                alt="{{ post.data.imageAlt }}"
+                class="swiper__link-img"
+                loading="lazy"
+              />
+            </a>
+            <div class="swiper">
+              <h5 class="swiper__title">{{ post.data.title }}</h5>
+              <p class="swiper__date">{{ post.data.date | postDate }}
+                 <svg xmlns="http://www.w3.org/2000/svg" class="article__date-item" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+              </p>
+              <p class="swiper__description">
+                {{ post.data.description | truncate(150, true) }}..
+              </p>
+            </div>
+          </div>
+          {%- set postCount = postCount + 1 -%}
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
   </div>
 </section>
 
 <section class="map">
-  <h6 class="map-title">Sprawdź jak trafić do kancelarii:</h6>
+  <h6 class="map-title">Sprawdź jak trafić do
+    <strong class="motto__title-item--modifier">kancelarii:</strong>
+  </h6>
   <iframe
     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2396.593679220076!2d22.5534288!3d51.24854049999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4722571b76750339%3A0xe0e1f452cdafe8f9!2sAdwokat%20Karolina%20Kami%C5%84ska!5e1!3m2!1spl!2spl!4v1725449823844!5m2!1spl!2spl"
     width="100%"
@@ -335,6 +327,34 @@ logoPath: "./dist/images/logo.png"
   ></iframe>
 </section>
 
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+  var swiper = new Swiper('.swiper-container', {
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    loop: true,
+     autoplay: {
+    delay: 5000,
+    disableOnInteraction: false,
+  },
+  breakpoints: {
+
+    0: {
+      slidesPerView: 1,
+      spaceBetween: 10,
+    },
+    768: {
+      slidesPerView: 2,
+      spaceBetween: 20,
+    },
+    1800: {
+      slidesPerView: 3,
+      spaceBetween: 20,
+    },
+  }
+  });
+</script>
 <script src="../dist/js/script.min.js"></script>
-<script>AOS.init()</script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
